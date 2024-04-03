@@ -15,8 +15,8 @@ router.get('/all', async(req,res)=>{
 
 })
 
-router.get('/:id', async (req, res) => {
-    const { id } = req.params; // Access the 'id' parameter from req.params
+router.post('/', async (req, res) => {
+    const { id } = req.body; // Access the 'id' parameter from req.params
 
     try {
         const response = await axios.get(`https://huggingface.co/api/datasets/${id}`);

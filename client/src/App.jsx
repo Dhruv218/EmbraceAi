@@ -16,7 +16,7 @@ const App = () => {
 			<Route path="/" exact element={<Landingpage/>} />
 			<Route path="/signup" exact element={<Signup />} />
       <Route path="/Datasets" exact element={<Datasets />} />
-      <Route path="/Datasets/:id" exact element={<Datasetdetail />} />
+      <Route path="/Datasetsdetail" exact element={<Datasetdetail />} />
 			<Route path="/login" exact element={<Login />} />
       <Route path="/profile" exact element={<User />} />
  		</Routes>

@@ -28,8 +28,9 @@ export const User = () => {
 
   const fetchDatasetById = async (datasetId) => {
     try {
-      const url = `${URL}/datasets/${datasetId}`;
-      const response = await axios.get(url);
+      const data = { id:datasetId };
+      const url = `${URL}/datasets`;
+      const res = await axios.post(url,data);
       return response.data;
     } catch (error) {
       console.error("Error fetching dataset:", error);

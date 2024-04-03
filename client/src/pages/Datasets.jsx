@@ -68,7 +68,7 @@ export const Datasets = () => {
           ? data?.slice(0, 100)?.map((it) => {
               return (
                 <Link
-                  to={`${it.id}`}
+                  to={`/Datasetsdetail?id=${it.id}`}
                   className="border-purple-700 flex justify-between hover:scale-110 hover:shadow-white transition-cmm flex-col gap-1 bg-opacity-40 min-w-[240px]  w-[22%] shadow-box min-h-[150px]  text-white px-4 py-3"
                 >
                   <div>

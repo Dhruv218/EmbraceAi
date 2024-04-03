@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { URL } from "../constants";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { IoCloudDownloadOutline } from "react-icons/io5";
@@ -8,7 +8,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 export const Datasetdetail = () => {
-  const { id } = useParams();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get('id');
+  console.log(id);
   const navigation = useNavigate();
   const [data, setdata] = useState();
   const [added, setadded] = useState(false);
@@ -37,8 +40,9 @@ export const Datasetdetail = () => {
   useEffect(() => {
     async function getDatasets() {
       try {
-        const url = `${URL}/datasets/${id}`;
-        const res = await axios.get(url);
+        const data = { id };
+        const url = `${URL}/datasets`;
+        const res = await axios.post(url,data);
         console.log(res.data);
         setdata(res.data);
       } catch (error) {
