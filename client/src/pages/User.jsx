@@ -31,7 +31,7 @@ export const User = () => {
       const data = { id:datasetId };
       const url = `${URL}/datasets`;
       const res = await axios.post(url,data);
-      return response.data;
+      return res.data;
     } catch (error) {
       console.error("Error fetching dataset:", error);
       return null;
